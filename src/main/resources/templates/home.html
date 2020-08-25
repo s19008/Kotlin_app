@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>じかんへんかん機</title>
     <link th:href="@{/css/app.css}" rel="stylesheet" />
 </head>
 <body>
-<div class="container">
-    <a class="hello-title" th:text="${message}" th:href="@{/customers}"></a>
-</div>
+<label for="name">あとなんじかん？</label>
+
+<input type="text" id="name">
+
 </body>
 </html>
