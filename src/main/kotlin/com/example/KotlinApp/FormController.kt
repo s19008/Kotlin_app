@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import kotlin.text.StringBuilder
+import kotlin.text.StringBuilder;
 
 @Controller
 @RequestMapping("/form")
 class FormController {
 
-    @GetMapping("janken")
+    @GetMapping("")
     fun janken() :String {
         return "form/janken"
     }
 
-    @PostMapping("janken")
-    fun janken(model: Model, @RequestParam janken :String) :String {
-        var resultBuilder = StringBuilder("resultBuilder")
+    @PostMapping("")
+    fun janken(modelMap: ModelMap, @RequestParam janken :String) :String {
+        var resultBuilder = StringBuilder()
         resultBuilder.append("あなたは")
         when (janken) {
             "g" -> {
@@ -46,7 +46,7 @@ class FormController {
                 resultBuilder.append("引き分けました。")
             }
         }
-        model.addAttribute("result", resultBuilder)
+        modelMap.addAttribute("result", resultBuilder.toString())
         return "form/janken"
     }
 
